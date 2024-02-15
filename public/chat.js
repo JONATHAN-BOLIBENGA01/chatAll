@@ -17,6 +17,7 @@ socket.on('newUserInDb', (pseudo)=>{
     newOptions = document.createElement('option')
     newOptions.textContent = pseudo
     newOptions.value = pseudo
+    document.getElementById('receiverInput').appendChild(newOptions) 
 })
 
 socket.on('oldWhispers', (messages)=>{
@@ -96,7 +97,7 @@ document.getElementById('chatForm').addEventListener('submit', (e)=>{
   
         case 'whisper': 
             newElement.classList.add(element, 'message'); 
-            newElement.textContent = content.sender + 'vous a  chuchoté : ' + content.message
+            newElement.textContent = content.sender + '  vous a  chuchoté : ' + content.message
             document.getElementById('msgContainer').appendChild(newElement)
             break
  

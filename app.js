@@ -56,12 +56,9 @@ io.on('connection', (socket)=> {
 
   socket.on('oldWhispers', (pseudo)=>{
     Chat.find({receiver : pseudo}).then((messages)=>{
-      if(err){
-        return false
-      }else{
-        socket.emit('oldWhispers', messages)
+       socket.emit('oldWhispers', messages)
       }
-    }).limit(4)
+    ).catch()
   })
 
   socket.on('newMessage', (message, receiver)=>{
